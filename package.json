@@ -6,6 +6,7 @@
     "test": "standard && best --verbose",
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev"
   },
+  "main": "./index.js",
   "repository": "zerowastemp/schemas",
   "authors": [
     "leo",
