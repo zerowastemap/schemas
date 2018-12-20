@@ -42,4 +42,4 @@ That is all! :tada:
 ## Authors
 
 - Leo Lamprecht ([@notquiteleo](https://twitter.com/notquiteleo)) - [ZEIT](https://zeit.co)
-- Augustin ([@auggod](https://github.com/auggod)
+- Augustin ([@auggod](https://github.com/auggod))
