@@ -1,0 +1,25 @@
+{
+  "name": "@zerowastemap/schemas",
+  "version": "2.13.0",
+  "description": "All schemas used for validation that are shared between our projects",
+  "scripts": {
+    "test": "standard && best --verbose",
+    "test-deps": "dependency-check . && dependency-check . --extra --no-dev"
+  },
+  "repository": "zerowastemp/schemas",
+  "authors": [
+    "leo",
+    "auggod"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@zeit/best": "0.4.3",
+    "@zeit/git-hooks": "0.1.4",
+    "ajv": "6.5.1",
+    "dependency-check": "3.2.1",
+    "standard": "12.0.1"
+  },
+  "git": {
+    "pre-commit": "standard"
+  }
+}
