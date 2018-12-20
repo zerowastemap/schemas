@@ -7,7 +7,7 @@
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev"
   },
   "main": "./index.js",
-  "repository": "zerowastemp/schemas",
+  "repository": "zerowastemap/schemas",
   "authors": [
     "leo",
     "auggod"
