@@ -16,7 +16,7 @@
   "devDependencies": {
     "@zeit/best": "0.4.3",
     "@zeit/git-hooks": "0.1.4",
-    "ajv": "6.5.1",
+    "ajv": "6.6.2",
     "dependency-check": "3.2.1",
     "standard": "12.0.1"
   },
