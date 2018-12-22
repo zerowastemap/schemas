@@ -89,14 +89,19 @@ const Url = {
   maxLength: 256
 }
 
-const ImageSrc = {
-  type: 'string'
-}
-
 const Image = {
   type: 'object',
+  additionalProperties: false,
   properties: {
-    src: ImageSrc
+    src: {
+      type: 'string'
+    },
+    width: {
+      type: 'number'
+    },
+    height: {
+      type: 'number'
+    }
   }
 }
 
