@@ -19,6 +19,7 @@ const Role = {
 const User = {
   type: 'object',
   additionalProperties: false,
+  required: ['email'],
   properties: {
     username: Username,
     role: Role,
