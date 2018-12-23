@@ -13,11 +13,13 @@ const Query = {
     },
     limit: {
       type: 'number',
+      minimum: 1,
       maximum: 100
     },
     radius: {
       type: 'number',
-      maximum: 1000
+      minimum: 0,
+      maximum: 1000 // 1000 km
     }
   }
 }
