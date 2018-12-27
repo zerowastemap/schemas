@@ -1,6 +1,6 @@
 {
   "name": "@zerowastemap/schemas",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "All schemas used for validation that are shared between our projects",
   "scripts": {
     "test": "standard && best --verbose"
