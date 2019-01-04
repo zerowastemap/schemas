@@ -92,6 +92,7 @@ const Url = {
 const Image = {
   type: 'object',
   additionalProperties: false,
+  required: ['src'],
   properties: {
     src: {
       type: 'string'
@@ -132,6 +133,7 @@ const Description = {
 const Location = {
   type: 'object',
   additionalProperties: false,
+  required: ['name', 'email', 'coordinates', 'kind', 'image'],
   properties: {
     address: Address,
     coordinates: Coordinates,
