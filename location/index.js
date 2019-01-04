@@ -123,6 +123,12 @@ const Note = {
   maxLength: 256
 }
 
+const Description = {
+  type: 'string',
+  minLength: 5,
+  maxLength: 1000
+}
+
 const Location = {
   type: 'object',
   additionalProperties: false,
@@ -133,6 +139,7 @@ const Location = {
     kind: Kind,
     name: Name,
     rating: Rating,
+    description: Description,
     note: Note,
     price: Price,
     image: Image,
