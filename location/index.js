@@ -37,9 +37,24 @@ const Address = {
 }
 
 const FullAddress = {
-  type: 'string',
+  type: ['object', 'string'],
   minLength: 1,
-  maxLength: 256
+  maxLength: 256,
+  additionalProperties: false,
+  properties: {
+    fr: {
+      type: 'string'
+    },
+    nl: {
+      type: 'string'
+    },
+    de: {
+      type: 'string'
+    },
+    en: {
+      type: 'string'
+    }
+  }
 }
 
 const Coordinates = {
@@ -157,6 +172,7 @@ const Location = {
 
 module.exports = {
   Address,
+  FullAddress,
   Coordinates, // 2d coordinates array, example: [50.85045, 4.34878] for latitude and longitude
   Email,
   Kind,

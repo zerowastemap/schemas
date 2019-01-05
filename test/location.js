@@ -1,6 +1,6 @@
 const AJV = require('ajv')
 const assert = require('assert')
-const { Location, Kind, Coordinates, Name } = require('../location')
+const { Location, Kind, Coordinates, Name, FullAddress } = require('../location')
 
 const ajv = new AJV({
   allErrors: true
@@ -59,6 +59,17 @@ exports.test_kind_invalid = () => {
   assert.strictEqual(isValid, false)
   assert.strictEqual(ajv.errors.length, 1)
   assert.strictEqual(ajv.errors[0].message, 'should be equal to one of the allowed values')
+}
+
+// Full address
+exports.test_full_address_valid = () => {
+  assert(ajv.validate(FullAddress, { 'fr': 'Wiener Straße 16, 10999 Berlin, Allemagne', 'de': 'Wiener Straße 16, 10999 Berlin' }))
+  assert(ajv.validate(FullAddress, 'Wiener Straße 16, 10999 Berlin, Allemagne'))
+}
+
+exports.test_full_address_invalid = () => {
+  const isValid = ajv.validate(FullAddress, { 'it': 'Wiener Straße 16, 10999 Berlin' })
+  assert.strictEqual(isValid, false)
 }
 
 // Complete location object
