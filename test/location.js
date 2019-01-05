@@ -1,6 +1,6 @@
 const AJV = require('ajv')
 const assert = require('assert')
-const { Location } = require('../location')
+const { Location, Kind, Coordinates, Name } = require('../location')
 
 const ajv = new AJV({
   allErrors: true
@@ -9,24 +9,19 @@ const ajv = new AJV({
 
 // Name
 exports.test_name_null = () => {
-  const isValid = ajv.validate(Location, {
+  const isValid = ajv.validate(Name, {
     name: null
   })
   assert.strictEqual(isValid, false)
   assert.strictEqual(ajv.errors.length, 1)
-  assert.strictEqual(ajv.errors[0].dataPath, '.name')
   assert.strictEqual(ajv.errors[0].message, 'should be string')
 }
 
 // Bad coordinates
 exports.test_coordinates_out_of_bound = () => {
-  const isValid = ajv.validate(Location, {
-    coordinates: [95.5069312, -198.1445476]
-  })
+  const isValid = ajv.validate(Coordinates, [95.5069312, -198.1445476])
   assert.strictEqual(isValid, false)
   assert.strictEqual(ajv.errors.length, 2)
-  assert.strictEqual(ajv.errors[0].dataPath, '.coordinates[0]')
-  assert.strictEqual(ajv.errors[1].dataPath, '.coordinates[1]')
   assert.strictEqual(ajv.errors[0].message, 'should be <= 90')
   assert.strictEqual(ajv.errors[1].message, 'should be >= -180')
 }
@@ -47,25 +42,22 @@ exports.test_coordinates_precision = () => {
 
 // Valid coordinates
 exports.test_coordinates_valid = () => {
-  assert(ajv.validate(Location, { coordinates: [52.5069312, 13.1445476] }))
-  assert(ajv.validate(Location, { coordinates: [50.8503396, 4.3517103] }))
+  assert(ajv.validate(Coordinates, [52.5069312, 13.1445476]))
+  assert(ajv.validate(Coordinates, [50.8503396, 4.3517103]))
 }
 
 // Valid kind (enum)
 exports.test_kind_valid = () => {
-  assert(ajv.validate(Location, { kind: 'supermarket' }))
-  assert(ajv.validate(Location, { kind: 'grocery-store' }))
-  assert(ajv.validate(Location, { kind: 'coop' }))
+  assert(ajv.validate(Kind, 'supermarket'))
+  assert(ajv.validate(Kind, 'grocery-store'))
+  assert(ajv.validate(Kind, 'coop'))
 }
 
 // Invalid kind (enum)
 exports.test_kind_invalid = () => {
-  const isValid = ajv.validate(Location, {
-    kind: 'foo'
-  })
+  const isValid = ajv.validate(Kind, 'foo')
   assert.strictEqual(isValid, false)
   assert.strictEqual(ajv.errors.length, 1)
-  assert.strictEqual(ajv.errors[0].dataPath, '.kind')
   assert.strictEqual(ajv.errors[0].message, 'should be equal to one of the allowed values')
 }
 
@@ -80,6 +72,7 @@ exports.test_location_valid = () => {
       city: 'Berlin',
       zip: '10999'
     },
+    fullAddress: 'Wiener Straße 16, 10999 Berlin, Allemagne',
     tags: ['bio', 'bulk'],
     email: 'kontakt@original-unverpackt.de',
     rating: 5,

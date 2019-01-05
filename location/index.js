@@ -2,8 +2,6 @@ const Address = {
   type: 'object',
   additionalProperties: false,
   required: [
-    'streetNumber',
-    'streetName',
     'zip',
     'countryCode'
   ],
@@ -36,6 +34,12 @@ const Address = {
       type: 'string'
     }
   }
+}
+
+const FullAddress = {
+  type: 'string',
+  minLength: 1,
+  maxLength: 256
 }
 
 const Coordinates = {
@@ -133,9 +137,10 @@ const Description = {
 const Location = {
   type: 'object',
   additionalProperties: false,
-  required: ['name', 'email', 'coordinates', 'kind', 'image'],
+  required: ['name', 'coordinates', 'address', 'image'],
   properties: {
     address: Address,
+    fullAddress: FullAddress,
     coordinates: Coordinates,
     email: Email,
     kind: Kind,
