@@ -5,6 +5,7 @@
   "scripts": {
     "test": "standard && best --verbose"
   },
+  "main": "./location",
   "repository": "zerowastemap/schemas",
   "authors": [
     "leo",
