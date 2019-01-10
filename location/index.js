@@ -76,6 +76,21 @@ const Coordinates = {
   ]
 }
 
+const Point = {
+  type: 'string',
+  enum: ['Point']
+}
+
+const Geometry = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['coordinates', 'type'],
+  properties: {
+    coordinates: Coordinates,
+    type: Point
+  }
+}
+
 const Email = {
   type: 'string',
   minLength: 5,
@@ -144,19 +159,34 @@ const Note = {
 }
 
 const Description = {
-  type: 'string',
-  minLength: 5,
-  maxLength: 1000
+  type: ['object', 'string'],
+  minLength: 1,
+  maxLength: 1000,
+  additionalProperties: false,
+  properties: {
+    fr: {
+      type: 'string'
+    },
+    nl: {
+      type: 'string'
+    },
+    de: {
+      type: 'string'
+    },
+    en: {
+      type: 'string'
+    }
+  }
 }
 
 const Location = {
   type: 'object',
   additionalProperties: false,
-  required: ['name', 'coordinates', 'address', 'image'],
+  required: ['name', 'geometry', 'address', 'image'],
   properties: {
     address: Address,
     fullAddress: FullAddress,
-    coordinates: Coordinates,
+    geometry: Geometry,
     email: Email,
     kind: Kind,
     name: Name,

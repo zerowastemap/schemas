@@ -76,6 +76,10 @@ exports.test_full_address_invalid = () => {
 exports.test_location_valid = () => {
   assert(ajv.validate(Location, {
     name: 'Original Unverpackt',
+    geometry: {
+      coordinates: [52.5069312, 13.1445476],
+      type: 'Point'
+    },
     address: {
       streetName: 'Wiener Straße',
       streetNumber: '16',
@@ -95,7 +99,6 @@ exports.test_location_valid = () => {
     note: `
       Amazing place!
     `,
-    coordinates: [52.5069312, 13.1445476],
     kind: 'supermarket'
   }))
 }
