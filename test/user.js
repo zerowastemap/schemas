@@ -10,6 +10,7 @@ exports.test_user_valid = () => {
   assert(ajv.validate(User, {
     username: 'auggod',
     email: 'salut@zerowastemap.app',
+    newsletter: true,
     role: 'user'
   }))
 }
@@ -17,7 +18,7 @@ exports.test_user_valid = () => {
 exports.test_user_invalid = () => {
   const isValid = ajv.validate(User, {
     username: '{user}',
-    role: 'guest'
+    role: 'admin'
   })
   assert.strictEqual(isValid, false)
   assert.strictEqual(ajv.errors.length, 3)

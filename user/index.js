@@ -4,6 +4,11 @@ const Email = {
   maxLength: 256
 }
 
+const Newsletter = {
+  type: 'boolean',
+  default: false
+}
+
 const Username = {
   type: 'string',
   minLength: 1,
@@ -13,7 +18,8 @@ const Username = {
 
 const Role = {
   type: 'string',
-  enum: ['user', 'admin']
+  enum: ['user'], // maybe we will want other user configurable roles here
+  default: 'user'
 }
 
 const User = {
@@ -21,6 +27,7 @@ const User = {
   additionalProperties: false,
   required: ['email'],
   properties: {
+    newsletter: Newsletter,
     username: Username,
     role: Role,
     email: Email
@@ -29,6 +36,7 @@ const User = {
 
 module.exports = {
   Email,
+  Newsletter,
   Role,
   User
 }

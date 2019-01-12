@@ -105,7 +105,8 @@ const Name = {
 
 const Kind = {
   type: 'string',
-  enum: ['supermarket', 'caviste', 'grocery-store', 'market', 'webshop', 'event', 'association', 'coop']
+  enum: ['supermarket', 'caviste', 'grocery-store', 'market', 'webshop', 'event', 'association', 'coop'],
+  default: 'grocery-store'
 }
 
 const Tags = {
