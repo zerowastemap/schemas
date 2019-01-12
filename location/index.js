@@ -57,22 +57,32 @@ const FullAddress = {
   }
 }
 
+const Radius = {
+  type: 'number',
+  minimum: 0,
+  maximum: 1000 // 1000 km
+}
+
+const Latitude = {
+  type: 'number',
+  maximum: 90,
+  minimum: -90
+  // multipleOf: 1e-8
+}
+
+const Longitude = {
+  type: 'number',
+  maximum: 180,
+  minimum: -180
+  // multipleOf: 1e-8
+}
+
 const Coordinates = {
   type: 'array',
   maxItems: 2,
   items: [
-    {
-      type: 'number',
-      maximum: 90,
-      minimum: -90
-      // multipleOf: 1e-8
-    }, // latitude
-    {
-      type: 'number',
-      maximum: 180,
-      minimum: -180
-      // multipleOf: 1e-8
-    } // longitude
+    Latitude,
+    Longitude
   ]
 }
 
@@ -180,6 +190,12 @@ const Description = {
   }
 }
 
+const MaxResults = {
+  type: 'number',
+  minimum: 1,
+  maximum: 100
+}
+
 const Location = {
   type: 'object',
   additionalProperties: false,
@@ -210,5 +226,9 @@ module.exports = {
   Name,
   Tags,
   Url,
-  Location
+  MaxResults,
+  Latitude,
+  Longitude,
+  Location,
+  Radius
 }
