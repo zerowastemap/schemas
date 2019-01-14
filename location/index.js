@@ -137,9 +137,12 @@ const Url = {
 const Image = {
   type: 'object',
   additionalProperties: false,
-  required: ['src'],
+  required: ['src', 'uuid'],
   properties: {
     src: {
+      type: 'string'
+    },
+    uuid: {
       type: 'string'
     },
     width: {
