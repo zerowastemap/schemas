@@ -94,7 +94,8 @@ exports.test_location_valid = () => {
     price: 3,
     url: 'https://original-unverpackt.de/',
     image: {
-      src: 'https://static.zerowastemap.app/file/zerowastemap/1928699b-410a-4e70-8ccd-eba63b174ffe'
+      src: 'https://static.zerowastemap.app/file/zerowastemap/1928699b-410a-4e70-8ccd-eba63b174ffe',
+      uuid: '1928699b-410a-4e70-8ccd-eba63b174ffe'
     },
     note: `
       Amazing place!
