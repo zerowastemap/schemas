@@ -193,12 +193,6 @@ const Description = {
   }
 }
 
-const MaxResults = {
-  type: 'number',
-  minimum: 1,
-  maximum: 100
-}
-
 const Location = {
   type: 'object',
   additionalProperties: false,
@@ -229,7 +223,6 @@ module.exports = {
   Name,
   Tags,
   Url,
-  MaxResults,
   Latitude,
   Longitude,
   Location,
